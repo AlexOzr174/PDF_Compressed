@@ -1,0 +1,5 @@
+ghostscript
+pillow
+PyPDF2
+ttkbootstrap
+pypdf

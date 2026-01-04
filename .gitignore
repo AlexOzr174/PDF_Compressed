@@ -1,0 +1,14 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+.venv/
+.idea/
+
+# macOS
+.DS_Store
+._*
+.AppleDouble
