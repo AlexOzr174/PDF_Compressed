@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdfcompressor"
+version = "2.0.0"
+description = "Modern PDF compression tool with GUI and CLI - Built with Python 3.14+ features"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "PDF Compressor Team", email = "team@pdfcompressor.dev"}
+]
+keywords = ["pdf", "compression", "ghostscript", "pypdf", "gui", "cli"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.12"
+dependencies = [
+    "ttkbootstrap>=1.10.0",
+    "PyYAML>=6.0",
+    "pypdf>=3.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+pdfcompressor = "pdfcompressor.cli:main"
+pdfcompressor-gui = "pdfcompressor.ui.main_window:main"
+
+[project.urls]
+Homepage = "https://github.com/pdfcompressor/pdfcompressor"
+Documentation = "https://github.com/pdfcompressor/pdfcompressor#readme"
+Repository = "https://github.com/pdfcompressor/pdfcompressor.git"
+Issues = "https://github.com/pdfcompressor/pdfcompressor/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pdfcompressor*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py312", "py313", "py314"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["pdfcompressor/tests"]

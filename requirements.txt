@@ -1,5 +1,3 @@
-ghostscript
-pillow
-PyPDF2
-ttkbootstrap
-pypdf
+ttkbootstrap>=1.10.0
+PyYAML>=6.0
+pypdf>=3.0.0
